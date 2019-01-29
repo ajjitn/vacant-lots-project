@@ -15,7 +15,7 @@ The `raw_data` folder contains the initial data I started with.
 
 
 The `scripts_datacleaning` folder contains the scripts used to read in and clean the data.
-  - `vacant_lots_data_readin.R` file will output 2 rds files to the 'intermediate_data' folder, namely `lots.rds` and `crimes_agg.rds`.
+  - `vacant_lots_data_readin.R` file reads in greened vacant lot data from a local file, ungreened vacant lot data from the opendataphilly API, and crime data from both local file and the opendataphilly API. It will output 2 rds files to the 'intermediate_data' folder, namely `lots.rds` and `crimes_agg.rds`.
     - `lots.rds` is the dataset of all greened and unreened vacant lots in Philly, their lat/lons, and addresses.
     - `crimes_agg.rds` is the dataset of all crimes in Philly from 1998 to Dec 2018.
 
