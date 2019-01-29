@@ -1,6 +1,6 @@
 # vacant-lots-project
 
-This repository contains all the files and scripts used to generate my senior thesis, Vacant Lot Greening and Crime. It combines the below 3 datasets to create one unfied dataset on crime rates around vacant lots and conduct a few analyses of crime rates around greened vacant lots and control vacant lots.
+This repository contains all the files and scripts used to generate my senior thesis. It combines the below 3 datasets to create one unfied dataset on crime rates around vacant lots. It also conducts a few analyses of crime rates around greened vacant lots and control ungreened vacant lots to see if we can isolate the effects of greening vacant lots on crime.
 
 Datasets used: 
 1) Greened vacant lot data (from the Pennsylvania Horticultural Society's LandCare program)
