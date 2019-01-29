@@ -19,7 +19,7 @@ The `scripts_datacleaning` folder contains the scripts used to read in and clean
     - `lots.rds` is the dataset of all greened and unreened vacant lots in Philly, their lat/lons, and addresses.
     - `crimes_agg.rds` is the dataset of all crimes in Philly from 1998 to Dec 2018.
 
-Using the lots.rds and crimes_agg.rds, users can calculate whatever crime metrics they want for the lots in question. An important note on the crimes_agg.rds file is that the types of crime that were reported in the old crime dataset were more limited than the types of crimes reported in the newer crime dataset. To maintain consistency, we collapsed the newer crimetypes into the broader old crimetypes and only keep crimetypes which were recorded in both datasets.  Below is the translation table of crimetypes.
+Using `lots.rds` and `crimes_agg.rds`, users can calculate whatever crime metrics they want for the lots in question. An important note on the crimes_agg.rds file is that the types of crime that were reported in the old crime dataset were more limited than the types of crimes reported in the newer crime dataset. To maintain consistency, we collapsed the newer crimetypes into the broader old crimetypes and only keep crimetypes which were recorded in both datasets.  Below is the translation table of crimetypes.
 
 
 |crimetype_new                 |crimetype_old       |
