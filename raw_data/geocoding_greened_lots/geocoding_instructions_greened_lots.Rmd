@@ -1,0 +1,190 @@
+---
+title: "geocoding_greened_lots"
+author: "Ajjit Narayanan"
+date: "1/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(sf)
+library(ggmap)
+library(jsonlite)
+library(RCurl)
+
+setwd("C:/Users/ajjit/Google Drive/Documents/vacant_lots_final/vacant-lots-project/raw_data/geocoding_greened_lots")
+
+```
+
+## Reading in data
+
+```{r readin_data}
+
+
+greened_lots= tbl_df(read.csv("agg_greened_list.csv", na.strings = c(""," ","  ")))
+
+#some data cleaning, creating a full_address column, id column, 
+greened_lots = greened_lots %>%
+  mutate(address = str_to_title(address),
+         address = str_replace_all(address, "N 0","N "),
+         full_address = paste0(address, ","," Philadelphia, PA"),
+         id = (rownames(greened_lots)),
+         season = as.factor(season))%>%
+  select(id, full_address, address, season, year, sq_ft, org, clc_group)
+
+# There seems to be 2 cases of data error where year = Spring, so we change those to NA
+greened_lots = greened_lots %>%
+  mutate(season = replace(season, year == "Spring", NA),
+         year  = replace(year, year == "Spring", NA))
+
+greened_lots$season = factor(greened_lots$season)
+greened_lots$year   = factor(greened_lots$year)
+```
+
+## Geocoding API testing
+
+We test 3 geocoding API's:
+
+  1) Mapquest
+  2) Google Maps
+  3) Data Science Toolkit
+
+```{r}
+
+# reandomly select 5 lots for testing
+test = greened_lots %>%
+  sample_n(5)
+
+#### Mapquest's API ####
+
+#vectorized function to send requests to Mapquest API
+## FUNCTION SEEMS TO BE BROKEN AS OF 1/3/19, MAYBE BC OF CHANGES TO API
+geocode_attempt <- function(address) {
+    URL2 = paste("http://open.mapquestapi.com/geocoding/v1/address?key=", "Fmjtd%7Cluub2huanl%2C20%3Do5-9uzwdz",
+        "&location=", address, "&outFormat='json'", "boundingBox=24,-85,50,-125",
+        sep = "")
+    # print(URL2)
+    URL2 <- gsub(" ", "+", URL2)
+    x = getURL(URL2)
+    x1 <- fromJSON(x)
+    if (length(x1$results[[1]]$locations) == 0) {
+        return(NA)
+    } else {
+        return(c(x1$results[[1]]$locations[[1]]$displayLatLng$lat, x1$results[[1]]$locations[[1]]$displayLatLng$lng))
+    }
+}
+vecgeocode_attempt <- Vectorize(geocode_attempt,vectorize.args = c('address'))
+
+test_geocode_mapquest = test %>%
+  rowwise() %>%
+  mutate(lat = vecgeocode_attempt(full_address)[1,],
+         lon = vecgeocode_attempt(full_address)[2,]) %>%
+  select(c(2,8,9))
+
+
+
+### GOOGLE API (using geocode() function from ggmap) ###
+# As of 2019, need to get a gmap API token first here: https://developers.google.com/maps/documentation/javascript/get-api-key
+# Then use register_google(key = "...") in the R session
+test_geocode_google = test %>%
+  rowwise() %>%
+  mutate(lat = geocode(full_address, source = c("google"))[,2],
+         lon = geocode(full_address, source = c("google"))[,1]) %>%
+  select(full_address, lat, lon)
+
+### DSK API (using geocode function from ggmap) ###
+test_geocode_dsk = test %>%
+  rowwise() %>%
+  mutate(lat = geocode(full_address, source = c("dsk"))[,2],
+         lon = geocode(full_address, source = c("dsk"))[,1]) %>%
+  select(full_address, lat, lon)
+
+
+```
+
+All the latitude and longitude coordinates differ slightly, but generally Google Maps is the most accurate when compared to where the actual address shows up on google maps page.
+
+ 
+## Geocoding in AWS
+
+Since Google's API has a built in limit of 2500 queries a day, the approach I used to quickly get around this was to:
+
+1) Slice the dataset into 2400 row chunks and download them as csv's
+2) Spin up Rstudio server instances on AWS through their free tier progrmam. You can find info on how to do that here: [link]http://strimas.com/r/rstudio-cloud-1/
+3) Upload one of the sliced datasets to each Server, and have it geocode 2400 datapoints each, and then redownload each updated datset with geocodes
+
+Below is the script for slicing up the dataset and storing them as csv's
+
+```{r slicingupdata, eval=FALSE, include=FALSE}
+greened_lots_1_2400 = greened_lots %>%
+  slice(1:2400)
+greened_lots_2401_4800 = greened_lots %>%
+  slice(2401:4800)
+greened_lots_4801_7200 = greened_lots %>%
+  slice(4801:7200)
+greened_lots_7201_9600 = greened_lots %>%
+  slice(7201:9600)
+greened_lots_9601_10133 = greened_lots %>%
+  slice(9601:nrow(greened_lots))
+
+
+write.csv(greened_lots_1_2400, file = "greened_lots_1_2400.csv")
+write.csv(greened_lots_2401_4800, file = "greened_lots_2401_4800.csv")
+write.csv(greened_lots_4801_7200, file = "greened_lots_4801_7200.csv")
+write.csv(greened_lots_7201_9600, file = "greened_lots_7201_9600.csv")
+write.csv(greened_lots_9601_10133, file = "greened_lots_9601_10133.csv")
+
+```
+
+And below is the script that ran in the RStudio Server Instance to geocode the datapoints. YOu just change the lot numbers to match whatever that chunk is.
+
+```{r aws_code, eval=FALSE, include=TRUE}
+
+# Running this takes approximately an hour. And since the Rstudio Server is a blank instalation of R, we have to reinstall necesary packages. After writing the file, we have to manually download it to our local disk because it by defualt gets saved in the AWS instance
+
+install.packages("devtools")
+library(devtools)
+install_github("dkahle/ggmap")
+library(ggmap)
+
+greened_lots_9601_10133 <- read.csv("greened_lots_9601_10133.csv", stringsAsFactors = F)
+x=mutate_geocode(greened_lots_9601_10133,full_address)
+
+write.csv(x, "greened_lots_9601_10133_updated.csv")
+
+```
+
+Now we commbine all of the data files from AWS.
+
+```{r new_geocoded_data}
+                                
+                                
+geocoded_lots_1 = tbl_df(read.csv("greened_lots_1_2400_updated.csv" ))
+geocoded_lots_2 = tbl_df(read.csv("greened_lots_2401_4800_updated.csv"))
+geocoded_lots_3 = tbl_df(read.csv("greened_lots_4801_7200_updated.csv"))
+geocoded_lots_4 = tbl_df(read.csv("greened_lots_7201_9600_updated.csv"))
+geocoded_lots_5 = tbl_df(read.csv("greened_lots_9601_10133_updated.csv"))
+
+geocoded_greened_lots = bind_rows(geocoded_lots_1, geocoded_lots_2, geocoded_lots_3, geocoded_lots_4, geocoded_lots_5)
+remove(geocoded_lots_1,geocoded_lots_2,geocoded_lots_3,geocoded_lots_4,geocoded_lots_5 )
+
+
+# Note: date_season_begin column all begins on March 1st, based on info from John MacDonald/PHS
+geocoded_greened_lots = geocoded_greened_lots %>%
+  mutate(id = (rownames(greened_lots)),
+         season = as.factor(season),
+         season = replace(season, year == "Spring", NA),
+         year  = replace(year, year == "Spring", NA),
+         date_season_begin = as.Date(paste0(as.character(year), "-03-01")),
+         clc_group = as.factor(clc_group),
+         org = as.factor(org))  %>%
+  select(id, full_address, date_season_begin, address, season, year, sq_ft, org, clc_group, lon, lat)
+
+
+lots = readRDS("C:/Users/ajjit/Google Drive/Documents/vacant_lots_final/vacant-lots-project/raw_data/raw_geocoded_greened_lots_data.rds")
+
+```
+
+
+

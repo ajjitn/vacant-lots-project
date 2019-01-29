@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>draft.md</title><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["[a11y]/accessibility-menu.js"],
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX',
+      undefinedFamily: "serif",
+      mtextFontInherit: true,
+    },
+    TeX: {
+  "Macros": {},
+  "equationNumbers": {},
+  "extensions": [
+    "AMSmath.js",
+    "AMSsymbols.js",
+    "noErrors.js",
+    "noUndefined.js"
+  ]
+},
+    showMathMenu: true
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
+    <style>@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thin-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thinitalic-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-medium-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-mediumitalic-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-black-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-blackitalic-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'roboto_condensedlight';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedlight_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condenseditalic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedregular';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 3rem;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  overflow: initial !important;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  line-height: 1.6;
+  word-wrap: break-word;
+  padding: 30px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+}
+body > *:first-child {
+  margin-top: 0 !important;
+}
+body > *:last-child {
+  margin-bottom: 0 !important;
+}
+body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+body .absent {
+  color: #c00;
+}
+body .anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+body .anchor:focus {
+  outline: none;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+body h1 .octicon-link,
+body h2 .octicon-link,
+body h3 .octicon-link,
+body h4 .octicon-link,
+body h5 .octicon-link,
+body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+body h1:hover .anchor,
+body h2:hover .anchor,
+body h3:hover .anchor,
+body h4:hover .anchor,
+body h5:hover .anchor,
+body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  text-decoration: none;
+}
+body h1:hover .anchor .octicon-link,
+body h2:hover .anchor .octicon-link,
+body h3:hover .anchor .octicon-link,
+body h4:hover .anchor .octicon-link,
+body h5:hover .anchor .octicon-link,
+body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+body h1 tt,
+body h2 tt,
+body h3 tt,
+body h4 tt,
+body h5 tt,
+body h6 tt,
+body h1 code,
+body h2 code,
+body h3 code,
+body h4 code,
+body h5 code,
+body h6 code {
+  font-size: inherit;
+}
+body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+body h1 .anchor {
+  line-height: 1;
+}
+body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+body h2 .anchor {
+  line-height: 1;
+}
+body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+body h3 .anchor {
+  line-height: 1.2;
+}
+body h4 {
+  font-size: 1.25em;
+}
+body h4 .anchor {
+  line-height: 1.2;
+}
+body h5 {
+  font-size: 1em;
+}
+body h5 .anchor {
+  line-height: 1.1;
+}
+body h6 {
+  font-size: 1em;
+  color: #777;
+}
+body h6 .anchor {
+  line-height: 1.1;
+}
+body p,
+body blockquote,
+body ul,
+body ol,
+body dl,
+body table,
+body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+body ul,
+body ol {
+  padding-left: 2em;
+}
+body ul.no-list,
+body ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+body ul ul,
+body ul ol,
+body ol ol,
+body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body li > p {
+  margin-top: 16px;
+}
+body dl {
+  padding: 0;
+}
+body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+body blockquote > :first-child {
+  margin-top: 0;
+}
+body blockquote > :last-child {
+  margin-bottom: 0;
+}
+body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+body table th {
+  font-weight: bold;
+}
+body table th,
+body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body .emoji {
+  max-width: none;
+}
+body span.frame {
+  display: block;
+  overflow: hidden;
+}
+body span.frame > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+body span.frame span img {
+  display: block;
+  float: left;
+}
+body span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #333;
+}
+body span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+body span.align-center > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+body span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+body span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+body span.align-right > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+body span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+body span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+body span.float-left span {
+  margin: 13px 0 0;
+}
+body span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+body span.float-right > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+body code,
+body tt {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+}
+body code:before,
+body tt:before,
+body code:after,
+body tt:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+body code br,
+body tt br {
+  display: none;
+}
+body del code {
+  text-decoration: inherit;
+}
+body pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+body .highlight {
+  margin-bottom: 16px;
+}
+body .highlight pre,
+body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+body pre {
+  word-wrap: normal;
+}
+body pre code,
+body pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+body pre code:before,
+body pre tt:before,
+body pre code:after,
+body pre tt:after {
+  content: normal;
+}
+body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+span.critic.comment > span {
+  background-color: #fff;
+}
+a {
+  color: #337ab7;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thin-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thinitalic-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-medium-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-mediumitalic-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-black-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-blackitalic-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'roboto_condensedlight';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedlight_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condenseditalic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedregular';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@keyframes RotatingBackground {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thin-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thinitalic-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-medium-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-mediumitalic-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-black-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-blackitalic-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'roboto_condensedlight';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedlight_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condenseditalic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedregular';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+.debugger-breakpoint-icon::before,
+.debugger-shadow-breakpoint-icon::before {
+  font-family: 'Octicons Regular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  font-size: 130%;
+  width: 130%;
+  height: 130%;
+  content: "\f052";
+}
+.debugger-breakpoint-icon,
+.debugger-breakpoint-icon-disabled,
+.debugger-breakpoint-icon-unresolved,
+.debugger-breakpoint-icon-conditional,
+.debugger-shadow-breakpoint-icon {
+  text-align: center;
+  display: block;
+  width: 0.8em;
+  cursor: pointer;
+}
+.debugger-breakpoint-icon-nonconditional {
+  color: #64B5F6;
+}
+.debugger-breakpoint-icon-conditional {
+  color: #FFCA28;
+}
+.debugger-breakpoint-icon-disabled {
+  position: relative;
+  top: -4px;
+  left: 2px;
+}
+.debugger-breakpoint-icon-disabled::before {
+  font-family: 'Octicons Regular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  font-size: 78%;
+  width: 78%;
+  height: 78%;
+  content: "\f084";
+}
+.debugger-breakpoint-icon-unresolved {
+  position: relative;
+  top: -2px;
+}
+.debugger-breakpoint-icon-unresolved::before {
+  font-family: 'Octicons Regular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  font-size: 80%;
+  width: 80%;
+  height: 80%;
+  content: "\f0e8";
+}
+.debugger-shadow-breakpoint-icon {
+  color: rgba(100, 181, 246, 0.4);
+}
+.debugger-current-line-highlight {
+  background: linear-gradient(to bottom, rgba(100, 181, 246, 0.8) 0%, rgba(100, 181, 246, 0.8) 5%, rgba(100, 181, 246, 0.3) 5%, rgba(100, 181, 246, 0.3) 95%, rgba(100, 181, 246, 0.8) 95%, rgba(100, 181, 246, 0.8) 100%);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thin-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-thinitalic-webfont.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-medium-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-mediumitalic-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-black-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/roboto-blackitalic-webfont.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'roboto_condensedlight';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedlight_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-lightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condenseditalic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-italic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedregular';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-regular-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: 'roboto_condensedbold_italic';
+  src: url('atom://atom-material-ui/assets/fonts/Roboto/robotocondensed-bolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+.gutter[gutter-name=diagnostics-gutter] {
+  width: 0.7em;
+}
+.diagnostics-gutter-ui-item {
+  display: flex;
+}
+.diagnostics-gutter-ui-item .icon {
+  display: flex;
+  width: 0.7em;
+  height: 0.7em;
+  font-size: 0.7em;
+  align-self: center;
+}
+.diagnostics-gutter-ui-item .icon::before {
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  margin: 0;
+  align-self: center;
+}
+.diagnostics-gutter-ui-item.diagnostics-gutter-ui-gutter-info,
+.diagnostics-gutter-ui-item.diagnostics-gutter-ui-gutter-review {
+  color: #64B5F6;
+}
+.diagnostics-gutter-ui-item.diagnostics-gutter-ui-gutter-error {
+  color: #EF5350;
+}
+.diagnostics-gutter-ui-item.diagnostics-gutter-ui-gutter-action,
+.diagnostics-gutter-ui-item.diagnostics-gutter-ui-gutter-warning {
+  color: #FFCA28;
+}
+
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+.line-number.bracket-matcher.bracket-matcher {
+  color: #69cbf2;
+  background-color: #060708;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+.pre.editor-colors,
+pre.editor-colors {
+  background-color: #151718;
+  color: #d4d7d6;
+}
+.pre.editor-colors,
+pre.editor-colors {
+  background-color: #151718;
+  color: #d4d7d6;
+}
+.pre.editor-colors .wrap-guide,
+pre.editor-colors .wrap-guide {
+  background: rgba(245, 250, 255, 0.04);
+}
+.pre.editor-colors .indent-guide,
+pre.editor-colors .indent-guide {
+  color: rgba(245, 250, 255, 0.04);
+}
+.pre.editor-colors .invisible-character,
+pre.editor-colors .invisible-character {
+  color: rgba(255, 255, 255, 0.1);
+}
+.pre.editor-colors .gutter,
+pre.editor-colors .gutter {
+  background-color: #0e1112;
+  color: #404b53;
+}
+.pre.editor-colors .gutter .line-number,
+pre.editor-colors .gutter .line-number {
+  background: #0e1112;
+  color: #404b53;
+  padding-left: 10px;
+}
+.pre.editor-colors .gutter .line-number.cursor-line,
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #060708;
+  color: #69cbf2;
+  font-weight: 100;
+}
+.pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: #060708 !important;
+  color: #69cbf2;
+}
+.pre.editor-colors .gutter .line-number:hover,
+pre.editor-colors .gutter .line-number:hover {
+  background-color: #0e1112 !important;
+  color: #69cbf2;
+}
+.pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number.folded,
+.pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .gutter .line-number:after,
+.pre.editor-colors .fold-marker:after,
+pre.editor-colors .fold-marker:after {
+  color: #FFF;
+  background: #404b53;
+}
+.pre.editor-colors .invisible,
+pre.editor-colors .invisible {
+  color: rgba(255, 255, 255, 0.1);
+}
+.pre.editor-colors .cursor,
+pre.editor-colors .cursor {
+  border-color: #d4d7d6 !important;
+  border-left: solid 2px;
+}
+.pre.editor-colors .selection .region,
+pre.editor-colors .selection .region {
+  background-color: rgba(85, 181, 219, 0.6);
+  border: solid 1px rgba(85, 181, 219, 0.9);
+}
+.pre.editor-colors .scroll-view,
+pre.editor-colors .scroll-view {
+  padding-left: 10px;
+}
+.pre.editor-colors .line.cursor-line,
+pre.editor-colors .line.cursor-line {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+.syntax--comment {
+  color: #41535b;
+  background: none;
+}
+.syntax--keyword {
+  color: #bb8ee0;
+}
+.syntax--keyword.syntax--control {
+  color: #bb8ee0;
+}
+.syntax--keyword.syntax--operator {
+  color: #69cbf2;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #bb8ee0;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #bb8ee0;
+}
+.syntax--storage {
+  color: #bb8ee0;
+}
+.syntax--storage.syntax--modifier {
+  color: #bb8ee0;
+}
+.syntax--storage.syntax--type.syntax--annotation {
+  color: #69cbf2;
+}
+.syntax--constant {
+  color: #e53239;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #e53239;
+}
+.syntax--constant.syntax--numeric {
+  color: #e53239;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #e53239;
+}
+.syntax--constant.syntax--other.syntax--java {
+  color: orange;
+}
+.syntax--constant.syntax--other.syntax--key {
+  color: #d4d7d6;
+}
+.syntax--constant.syntax--other.syntax--placeholder {
+  color: orange;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #e53239;
+}
+.syntax--constant.syntax--placeholder {
+  color: #69cbf2;
+}
+.syntax--constant.syntax--variable {
+  color: orange;
+}
+.syntax--variable {
+  color: orange;
+}
+.syntax--variable.syntax--interpolation {
+  color: orange;
+}
+.syntax--variable.syntax--language {
+  color: #e53239;
+}
+.syntax--variable.syntax--parameter.syntax--function {
+  color: orange;
+}
+.syntax--invalid.syntax--illegal,
+.syntax--invalid.syntax--deprecated {
+  background: none;
+  color: #e53239;
+}
+.syntax--string {
+  color: #a7e739;
+}
+.syntax--string .syntax--constant {
+  color: #a7e739;
+}
+.syntax--string.syntax--regexp {
+  color: #a7e739;
+}
+.syntax--string.syntax--regexp .syntax--constant.syntax--character.syntax--escape,
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded,
+.syntax--string.syntax--regexp .syntax--string.syntax--regexp.syntax--arbitrary-repitition {
+  color: #a7e739;
+}
+.syntax--string.syntax--regexp.syntax--group {
+  color: #a7e739;
+}
+.syntax--string.syntax--regexp.syntax--character-class {
+  color: #a7e739;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #a7e739;
+}
+.syntax--string .syntax--variable {
+  color: orange;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #a7e739;
+}
+.syntax--source .syntax--string .syntax--source,
+.syntax--source .syntax--string .syntax--meta.syntax--embedded.line {
+  color: #a7e739;
+}
+.syntax--source .syntax--string .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #a7e739;
+}
+.syntax--source .syntax--string .syntax--punctuation.syntax--section.syntax--embedded .syntax--source {
+  color: #a7e739;
+}
+.syntax--punctuation.syntax--terminator {
+  color: #858d8a;
+}
+.syntax--punctuation.syntax--separator {
+  color: #858d8a;
+}
+.syntax--punctuation.syntax--definition {
+  color: #858d8a;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #41535b;
+}
+.syntax--punctuation.syntax--definition.syntax--string,
+.syntax--punctuation.syntax--definition.syntax--variable,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #a7e739;
+}
+.syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #d4d7d6;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #d4d7d6;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #d4d7d6;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #d4d7d6;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #d4d7d6;
+}
+.syntax--support {
+  color: #f408b8;
+}
+.syntax--support.syntax--class {
+  color: #f408b8;
+}
+.syntax--support.syntax--function {
+  color: #f408b8;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #f408b8;
+}
+.syntax--support.syntax--constant {
+  color: #e53239;
+}
+.syntax--support.syntax--type.syntax--property-name.syntax--css {
+  color: #f408b8;
+}
+.syntax--source .syntax--entity.syntax--name.syntax--tag,
+.syntax--source .syntax--entity.syntax--other.syntax--attribute-name,
+.syntax--meta.syntax--tag.syntax--inline,
+.syntax--meta.syntax--tag.syntax--inline .syntax--entity {
+  color: #a7e739;
+}
+.syntax--tag,
+.syntax--tag .syntax--entity {
+  color: #69cbf2;
+}
+.syntax--html .syntax--string {
+  color: #d4d7d6;
+}
+.syntax--html .syntax--punctuation.syntax--definition.syntax--tag {
+  color: #69cbf2;
+}
+.syntax--html .syntax--entity.syntax--name.syntax--tag {
+  text-decoration: done;
+}
+.syntax--html .syntax--entity.syntax--name.syntax--tag.syntax--structure {
+  color: #69cbf2;
+}
+.syntax--html .syntax--entity.syntax--name.syntax--tag.syntax--block {
+  color: #69cbf2;
+}
+.syntax--html .syntax--entity.syntax--other.syntax--attribute-name {
+  color: #a7e739;
+}
+.syntax--entity {
+  color: #69cbf2;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #69cbf2;
+  text-decoration: none;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #a7e739;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #69cbf2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #f0d939;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #69cbf2;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #69cbf2;
+  text-decoration: done;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #a7e739;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #a7e739;
+}
+.syntax--meta.syntax--link {
+  color: #d4d7d6;
+}
+.syntax--meta.syntax--require {
+  color: #d4d7d6;
+}
+.syntax--meta.syntax--brace.syntax--curly {
+  color: #858d8a;
+}
+.syntax--meta.syntax--brace.syntax--round {
+  color: #d4d7d6;
+}
+.syntax--meta.syntax--comma {
+  color: #858d8a;
+}
+.syntax--meta.syntax--preprocessor {
+  color: #bb8ee0;
+}
+.syntax--meta.syntax--selector {
+  color: #858d8a;
+}
+.syntax--meta.syntax--separator {
+  background-color: #858d8a;
+  color: #858d8a;
+}
+.syntax--none {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--bold {
+  color: #d4d7d6;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--deleted {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--italic {
+  color: #d4d7d6;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--inserted {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--list {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--quote {
+  color: #d4d7d6;
+}
+.syntax--markup.syntax--raw.syntax--inline {
+  color: #d4d7d6;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--markup.syntax--heading {
+  color: #d4d7d6;
+}
+pre.editor-colors[mini] .scroll-view,
+pre.editor-colors(.mini) .scroll-view {
+  padding-left: 1px;
+}
+.bracket-matcher .region {
+  border-bottom: 1px solid #a7e739;
+  margin-top: 2px;
+}
+.syntax--html .syntax--meta.syntax--tag.syntax--any {
+  color: #a7e739;
+}
+.syntax--html .syntax--entity.syntax--name.syntax--tag.syntax--block,
+.syntax--html .syntax--entity.syntax--name.syntax--tag.syntax--inline,
+.syntax--html .syntax--entity.syntax--name.syntax--tag.syntax--name {
+  color: #69cbf2;
+}
+.syntax--html .syntax--entity.syntax--other.syntax--attribute-name.syntax--id.syntax--html {
+  color: #a7e739;
+}
+.syntax--html .syntax--punctuation.syntax--separator.syntax--key-value {
+  color: #a7e739;
+}
+.syntax--html .syntax--string.syntax--quoted.syntax--double {
+  color: #cff294;
+}
+.syntax--html .syntax--string.syntax--quoted.syntax--double .syntax--punctuation.syntax--definition.syntax--string.syntax--begin,
+.syntax--html .syntax--string.syntax--quoted.syntax--double .syntax--punctuation.syntax--definition.syntax--string.syntax--end {
+  color: #a7e739;
+}
+.syntax--html .syntax--string.syntax--quoted.syntax--double .syntax--punctuation.syntax--definition.syntax--string .syntax--separator.syntax--key-value.syntax--html {
+  color: #a7e739;
+}
+.syntax--jade {
+  color: #d4d7d6;
+}
+.syntax--jade .syntax--comment.syntax--jade {
+  color: #41535b;
+}
+.syntax--jade .syntax--storage.syntax--type.syntax--function.syntax--jade {
+  color: #bb8ee0;
+}
+.syntax--jade .syntax--meta.syntax--control.syntax--flow.syntax--jade {
+  color: #e53239;
+}
+.syntax--jade .syntax--source.syntax--script .syntax--meta.syntax--brace.syntax--round.syntax--js,
+.syntax--jade .syntax--source.syntax--script .syntax--meta.syntax--brace.syntax--curly.syntax--js {
+  color: #858d8a;
+}
+.syntax--jade .syntax--entity.syntax--name.syntax--tag.syntax--jade {
+  color: #69cbf2;
+}
+.syntax--jade .syntax--storage.syntax--type.syntax--import.syntax--include.syntax--jade {
+  color: #cff294;
+}
+.syntax--jade .syntax--variable.syntax--control.syntax--import.syntax--include.syntax--jade {
+  color: #a7e739;
+}
+.syntax--jade .syntax--constant.syntax--id {
+  color: #f0d939;
+}
+.syntax--jade .syntax--constant.syntax--language.syntax--js {
+  color: #bb8ee0;
+}
+.syntax--jade .syntax--text.syntax--jade {
+  color: #d4d7d6;
+}
+.syntax--jade .syntax--punctuation.syntax--separator.syntax--key-value.syntax--jade {
+  color: #69cbf2;
+}
+.syntax--jade .syntax--string.syntax--quoted.syntax--jade {
+  color: #d4d7d6;
+}
+.syntax--java .syntax--punctuation.syntax--angle,
+.syntax--java .syntax--punctuation.syntax--round {
+  color: #d4d7d6;
+}
+.syntax--java .syntax--punctuation.syntax--curly {
+  color: #858d8a;
+}
+.syntax--source.syntax--json .syntax--constant.syntax--language {
+  color: #e53239;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--string.syntax--quoted.syntax--json {
+  color: #69cbf2;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--string.syntax--quoted.syntax--json {
+  color: #d4d7d6;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--string.syntax--quoted.syntax--json .syntax--punctuation.syntax--definition.syntax--string {
+  color: #d4d7d6;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--string.syntax--quoted.syntax--json {
+  color: #69cbf2;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--string.syntax--quoted.syntax--json .syntax--punctuation.syntax--definition.syntax--string {
+  color: #69cbf2;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--string.syntax--quoted.syntax--json {
+  color: #d4d7d6;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--value.syntax--json .syntax--string.syntax--quoted.syntax--json .syntax--punctuation.syntax--definition.syntax--string {
+  color: #d4d7d6;
+}
+.syntax--mustache .syntax--meta.syntax--tag.syntax--template {
+  color: #a7e739;
+}
+.syntax--mustache .syntax--meta.syntax--tag.syntax--template .syntax--entity.syntax--name.syntax--tag {
+  color: #cff294;
+}
+
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+.tree-view li:not(.list-nested-item),
+.tree-view li.list-nested-item > .list-item {
+  line-height: 1.1rem;
+}
+.tree-view .list-group .selected::before,
+.tree-view .list-tree .selected::before {
+  height: 1.1rem;
+}
+.tree-view .name.icon::before {
+  margin: 0 0.5rem 0 0;
+}
+.tree-view .list-tree.has-collapsable-children .list-nested-item > .list-tree > li,
+.tree-view .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+  padding-left: 1rem;
+}
+.tree-view .list-tree.has-collapsable-children li.list-item {
+  margin-left: 1.1rem;
+}
+.tree-view .list-tree.has-collapsable-children .list-nested-item > .list-item::before {
+  margin-right: 0.3rem;
+}
+</style>
+
+  </head>
+  <body>
+    <h1 id="vacant-lot-greening-and-crime">Vacant Lot Greening and Crime</h1>
+<h2 id="abstract">Abstract</h2>
+<p>Many American cities, particularly former industrial hubs like Detroit and Philadelphia, face the burgeoning problem of vacant lots in cities. An interesting solution exists in the form of vacant lot greening, which turns the neglected vacant lots into mini public parks for local residents. The positive ecological and mental health benefits of greened vacant lots have been well documented, but one remaining question is the effect of vacant lot greening on crime. This paper seeks to answer this question by using data on greened vacant lots and crime in Philadelphia. We will use a quasi experimental matching approach that takes advantage of the inherent randomness in the greening decision. In particular, we will match each of the 6,000+ greened vacant lots in the city to a similar ‘control’ ungreened vacant lot in the city based on characteristics such as the size of lot, and socioeconomic and business characteristics of the surrounding neighborhood. By analyzing the difference in crime change around greened vacant lot versus its control ungreened vacant lot, we (will) examine the effect of greening on crime and whether that effect varies by time, location, and crimetype. By doing so, we can also get at larger urban questions such as whether changing the built environment of a neighborhood can successfully change individual level behavior.</p>
+<h2 id="introduction">Introduction</h2>
+<h2 id="literature-review">Literature Review</h2>
+<p>Over the past 10 years, the number of vacant properties in the United States has been steadily rising. The problems of vacancy and abandonment are especially pronounced for former industrial cities like Detroit, Cleveland, Pittsburgh and Philadelphia. Due to deindustrialization, recent economic downturns, and population outmigration, these cities are facing very high levels of vacancy. Vacant buildings have a plethora of negative effects including increased fiscal strain on city services, the lowering of nearby property values, and the undermining of neighbor’s quality of life. Studies in Philadelphia estimated that vacant properties result in $3.6 billion in reduced household wealth because of the blighting effect they have on nearby properties (<span class="citation" data-cites="econsult10vacant">Econsult Corporation et al. (<a href="#ref-econsult10vacant">2010</a>)</span>). And a 2005 report from the National Vacant Properties Campaign found that “With abandoned buildings comes social fragmentation. Individuals who live in communities with an increasing number of vacant buildings begin to feel isolated, weakening the community as a whole” (<span class="citation" data-cites="nationalvacant05vacant">Vacant Property Campaign’ (<a href="#ref-nationalvacant05vacant">2005</a>)</span>) .</p>
+<p>It’s also important to distinguish between vacant properties - buildings that have been abandoned - from vacant lots - lots without any standing buildings or structures. In a bid to reduce the blighting effects of vacant properties and to reduce the dangers that old dilapidated structures pose, many municipalities have started demolishing vacant buildings in effect turning them into vacant lots. This has led to a growing number of vacant lots in cities around the US. Detroit Future City, a nonprofit planning and advocacy organization, estimates that there are more than 120,000 vacant lots in Detroit (<span class="citation" data-cites="detroitfuture17green">Detroit Future City (<a href="#ref-detroitfuture17green">2017</a>)</span>) and Econsult estimates that Philadelphia has around 40,000 vacant lots (<span class="citation" data-cites="econsult10vacant">Econsult Corporation et al. (<a href="#ref-econsult10vacant">2010</a>)</span>). Cities have adopted a slew of policies to turn the growing number of vacant lots into productive community spaces rather than neglected spaces that blight their surroundings. Cities like St.&nbsp;Louis give neighborhood residents the ability to buy vacant lots at very low prices – often for a $1 – through a program called Mow to Own (<span class="citation" data-cites="anderson18much">Anderson (<a href="#ref-anderson18much">2018</a>)</span>). Many vacant lots have also been turned into community gardens, and even vineyards. One of the unique approaches that the city of Philadelphia has taken revolves around low cost greening of lots, in effect turning vacant properties into mini parks. Most vacant lots are located in urban high density low income neighborhoods where public parks and greenspaces are in short supply (<span class="citation" data-cites="wolch2005parks">Wolch et al. (<a href="#ref-wolch2005parks">2005</a>)</span>). So Philadelphia’s greening program provides a unique opportunity to study what happens when historically deprived low income communities gain access to green space.</p>
+<p>The history of greening programs in the United States is long and rich. Urban activists have been transforming vacant and abandoned places into community green spaces for decades, often without municipal approval. A good example of this is the Green Guerillas in 1970’s New York who built over 1000 urban gardens (<span class="citation" data-cites="schmelzkopf1995urban">Schmelzkopf (<a href="#ref-schmelzkopf1995urban">1995</a>)</span>). In recent years, many municipal government, such as Philadelphia, have given their explicit approval for such greening programs and are actively working with community organizations to In Philadelphia the greening programs has explicit support from the city government and carried out by many community organizations. And in recent years, the type of land that has been greened is also expanding from single isolated lots to larger swaths of land. In cities like Detroit, which like Philadelphia has a large amount of vacant lots, recent initiatives seek to turn large groups of abandoned lots into urban farms and even forests. In 2013, a Detroit organization called Hantz farms was awarded the right to purchase 1500 parcels of mostly vacant land to create an urban farm (<span class="citation" data-cites="goodyear13acre">Goodyear (<a href="#ref-goodyear13acre">2013</a>)</span>). Greening programs in US cities are growing at a fast pace. Current day greening programs exist in many North American cities including Toronto, Seattle, Houston, Detroit, Boston, New York, Baltimore, and Jacksonville and have only grown in popularity over the last few decades (<span class="citation" data-cites="schilling2008greening">Schilling and Logan (<a href="#ref-schilling2008greening">2008</a>)</span>). As more of these programs are being incorporated into city government’s official responses to growing vacancy rates, there has also been a growing emphasis on researching exactly what the effects of green spaces are on the surrounding communities.</p>
+<p>Much research has been conducted on the social, mental health, and environmental impacts of lot greening, and the overwhelming consensus is that greening provides positive benefits along those fronts. Green lots provide more robust storm water management, better air quality, decreased stress levels, and increased perceptions of health and exercise (<span class="citation" data-cites="south2015neighborhood">South et al. (<a href="#ref-south2015neighborhood">2015</a>)</span>). But the one area of analysis where the evidence is a lot more contested is the impact of greened lots on crime rates.</p>
+<p>Some scholars believe that greened lots would increase the crime rates of the neighborhoods they’re in. The theoretical reasons for this are that green spaces and parks often provide cover for criminal activity (<span class="citation" data-cites="kuo2001environment">Kuo and Sullivan (<a href="#ref-kuo2001environment">2001</a><a href="#ref-kuo2001environment">a</a>)</span>). They impede visibility and could also limit one’s ability to easily escape (<span class="citation" data-cites="jackson2013health">Jackson et al. (<a href="#ref-jackson2013health">2013</a>)</span>). Finally, if green spaces bring in more people and vehicles into an area, there are more opportunities for criminals to strike in the first place. The empirical support for this line of thinking is also well established. Wolfe et. al examined the the association of vegetation with crime in Philadelphia and found that the higher the rates of vegetation in the neighborhood, the higher the likelihood of theft (<span class="citation" data-cites="wolfe2012does">Wolfe and Mennis (<a href="#ref-wolfe2012does">2012</a>)</span>). Their methodology involved estimating the amount of greenery/vegetation in Philly neighborhoods through the use of satellites and aerial photography, which is harder to apply to vacant lots. Garvin and co-authors conducted a similar analysis in 2012 on greened vacant lots in Philadelphia. They found that vandalism, burglaries, and robberies all significantly increased after a lot was greened (<span class="citation" data-cites="garvin2013greening">Garvin et al. (<a href="#ref-garvin2013greening">2013</a>)</span>). Another study by Branas and co-authors in 2011 found that the greened lots in Philadelphia were also associated with statistically insignificant (but still present) increases in drug use and distribution, as well as disorderly conduct (<span class="citation" data-cites="branas2011difference">Branas et al. (<a href="#ref-branas2011difference">2011</a>)</span>). So in conclusion, research on vegetation in general and greened lots in particular find that certain types of crimes – notably place based crimes like theft and vandalism– have increased after a community obtains more green space.</p>
+<p>On the other side of the argument are scholars who argue that green space should deter and lower crime rates. The theoretical underpinnings for this first come from Jane Jacobs “eyes on the street” theory, which is the idea that green spaces encourage more people to use the space and thus deter criminals from initiating a crime in the first place. Another theoretical underpinning for this view comes from social disorganization theory which posits that signs of physical disrepair, like vacant lots, send a message that the community is deteriorating and incentivizes criminal activity. So greening lots is a good way to counteract these signs of physical disorder. A final reason why greening may lead to reduced crime rates was proposed by Kaplan s that being in view of greenery and vegetation has a mentally restorative effect on potential criminals (<span class="citation" data-cites="kaplan1989experience">Kaplan and Kaplan (<a href="#ref-kaplan1989experience">1989</a>)</span>). All together, these theoretical groundings paint a strong picture in favor of decreased crime rates.</p>
+<p>The empirical support for this is equally strong. Wolfe and his coauthors (in the same study cited above) find that rates of vegetation are negatively correlated with rates of assaults and burglaries. A similar study by Kuo in and co-authors in 2012 find that vegetation is negatively correlated with aggravated assaults, and total violent crimes (<span class="citation" data-cites="kuo2001aggression">Kuo and Sullivan (<a href="#ref-kuo2001aggression">2001</a><a href="#ref-kuo2001aggression">b</a>)</span>). This study in particular gives strong support to the mental restoration hypotheses because it shows that people who live in areas with higher amounts of green space and vegetation had lower rates of interfamily violence after controlling for a host of other variables. Another study by Donovan and co-authors studied the amount of trees in a given neighborhood and its relationship to crime. They find that the larger and more populous trees are in a neighborhood, the fewer reports of vandalism and violent crime there are (<span class="citation" data-cites="donovan2012effect">Donovan and Prestemon (<a href="#ref-donovan2012effect">2012</a>)</span>). At the end of the day, these studies provide support for green spaces leading to less crime but they are not specific to vacant lot greening, so now we turn to those studies.</p>
+<p>Branas and coauthors (in the same article cited above) find that vacant lot greening in Philadelphia led to a significant decrease in gun assaults and vandalism. A similar study of vacant lot greening in Austin by Snelgrove and coauthors found that greening was associated with a significant reduction in the total amount of crimes and an even sharper reduction in the amount of violent crimes (<span class="citation" data-cites="snelgrove2004urban">Snelgrove et al. (<a href="#ref-snelgrove2004urban">2004</a>)</span>). Finally, another study by Kuo and co-authors in 2001 found that vacant lot greening led to a statistically significant reduction in violent crimes (). All in all, it seems that vacant lot greening has a particular negative impact on gun crimes and violent crime, while other less serious place based crimes like robberies and burglaries seem to go up.</p>
+<h2 id="data">Data</h2>
+<p>For this study, we combined data from 3 sources:</p>
+<ol type="1">
+<li>LandCare greened vacant lot data (from the Pennsylvania Horticultural Society)</li>
+<li>Vacant lot Violation data (from the Philadelphia Licenses and Inspections office)</li>
+<li>Crime data (From the Philadelphia Police Department)</li>
+</ol>
+<h3 id="greened-vacant-lot-data">Greened Vacant Lot Data</h3>
+<p>The first LandCare dataset comes from the Pennsylvania Horticultural Society (PHS), which administers Philadelphia’s LandCare program. This data reported all lots in the city that have been greened through PHS’s LandCare program. In total, there were 10,132 lots that were greened in the timeframe between 1993 and 2017. The data gives the address of the lot, the season it was greened in (Fall or Spring) and the square footage of the lot. After filtering out lots where the date of greening wasn’t recorded, we were left with 6,822 greened vacant lots.</p>
+<h3 id="ungreened-vacant-lot-data">Ungreened Vacant Lot Data</h3>
+<p>The second dataset comes from the Philadelphia Licenses and Inspections office and lists all code violations in the city. The L&amp;I office monitors building conditions in Philadelphia and issues code violations to properties that are in violation of the building code. One subtype of code violations is given to vacant and abandoned lots in the city. By filtering the data to only lots with these subtypes of code violations, we obtain data on all vacant (and ungreened) lots in Philadelphia. Overall, this data gave us 15,612 ungreened vacant lots from the years 2007 to 2017</p>
+<p>There are a couple of important notes about this dataset. First, there are many lots with multiple vacant violations and for consistency we only record the first violation. Second, a few of the lots appeared in both the LandCare greened lot data and the L&amp;I lot violation data. We deleted these overlapping lots from the lot violation data and kept them in the LandCare greened lot data. Finally many of the violations have now been closed, implying that the lots are no longer vacant. Some violations are not closed, implying that the lots are still vacant. This allows us to construct a vacancy timeframe for each lot where the vacancy start date is the date of the first issued violation and the vacancy end date is either the date the violation has been closed or the current date if the violation hasn’t been closed. We limit the dataset to lots that have been vacant for atleast 2 years for reasons that will become apparent below.</p>
+<p>Below is a map of where all the greened and ungreened lots are located in Philadelphia.</p>
+<p><img src="..\final_data\graphs\greended_vs_ungreened_lots_in_phl_eda.png"></p>
+<h3 id="crime-data">Crime Data</h3>
+<p>We obtained crime data from two seperate sources. First, crime data from 1995 to 2005 was given to us by the Penn Criminology Department. And newer crime data from 2005 till October 2018 was obtained from the Philadelphia Police Department and is publicly available at opendataphilly.org. The crime data reports crimetype, latitude/longitude coordinates, and date of crime. One note about this dataset is that the types of crime that were reported in the old crime dataset were more limited than the types of crimes reported in the newer crime dataset. To maintain consistency, we only keep crimetypes which were recorded in both datasets, leaving us with 1,510,789 crime records from 1995 to 2018. Below is a histogram of the total number of crimes over time.</p>
+<p><img src="..\final_data\graphs\crimes_over_time_phl_eda.png"></p>
+<p>Finally, we combined all the above data to create one unified dataset on crime change around vacant lots in Philadelphia (both greened and ungreened). Specifically, we created a 70 meter buffer around each vacant lot and counted the number of crimes that occurred 11 months before and after the treatment date. For greened lots, the treatment date was the date the lot was greened. For ungreened lots, the treatment date was the midpoint of the vacancy interval. So if a lot was vacant from January 2011 to January 2013, the treatment date was assigned as January 2012. This can be thought of as the date the lot would have been greened, had it been chosen to be a part of the LandCare program. We also repeat this process with buffers of 150 meters and 500 meters. Our final dataset was a listing of addresses, latitude/longitude pairs, a binary greening treatment variable, and crime statistics for each of our 22,434 lots. Below is a short excerpt of 3 random lots in our dataset.</p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 26%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Address</th>
+<th style="text-align: left;">Intervention Date</th>
+<th style="text-align: left;">Greened</th>
+<th style="text-align: right;">Num Crimes before (70m)</th>
+<th style="text-align: right;">Num Crimes after (70m)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3006 E Thompson St</td>
+<td style="text-align: left;">2008-12-28</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1701 S 22nd St</td>
+<td style="text-align: left;">2004-03-01</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1239 N 19th St</td>
+<td style="text-align: left;">2015-04-28</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<p>For a more in depth explanation of our data cleaning process, see Appendix A.</p>
+<h2 id="results">Results</h2>
+<h3 id="i.-aggregate-comparisons">I. Aggregate Comparisons</h3>
+<p>For the first part of our data analysis, we analyzed how crime rates had changed in aggregate around greened lots and around ungreened control lots. We used a timeframe of 11 months before the intervention date and 11 months after the intervention date in order to cancel out any seasonality in the crime data. The below table shows the average difference in number of crimes in the 11 months pre and post intervention date for greened vacant lots and control vacant lots broken down by crimetype. We also conduct a Wilcoxon rank-sum test on the means of the differences to see if there is a statistically significant difference.</p>
+<table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 20%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Crimetype</th>
+<th style="text-align: right;">Average difference (greened)</th>
+<th style="text-align: right;">Average difference (control)</th>
+<th style="text-align: right;">Difference in Difference</th>
+<th style="text-align: right;">Wilcox test p value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aggravated Assaults</td>
+<td style="text-align: right;">0.036646</td>
+<td style="text-align: right;">-0.062450</td>
+<td style="text-align: right;">0.099098</td>
+<td style="text-align: right;">0.0031389</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Burglaries</td>
+<td style="text-align: right;">-0.064200</td>
+<td style="text-align: right;">-0.131050</td>
+<td style="text-align: right;">0.066849</td>
+<td style="text-align: right;">0.0531337</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Disorderly Conduct</td>
+<td style="text-align: right;">-0.057170</td>
+<td style="text-align: right;">-0.043490</td>
+<td style="text-align: right;">-0.013680</td>
+<td style="text-align: right;">0.0027141</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Homicides</td>
+<td style="text-align: right;">0.010554</td>
+<td style="text-align: right;">0.000448</td>
+<td style="text-align: right;">0.010106</td>
+<td style="text-align: right;">0.6598012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Drinking</td>
+<td style="text-align: right;">0.005717</td>
+<td style="text-align: right;">-0.002630</td>
+<td style="text-align: right;">0.008343</td>
+<td style="text-align: right;">0.0195992</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robberies</td>
+<td style="text-align: right;">-0.116240</td>
+<td style="text-align: right;">-0.045220</td>
+<td style="text-align: right;">-0.071020</td>
+<td style="text-align: right;">0.0006443</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Thefts</td>
+<td style="text-align: right;">-0.049400</td>
+<td style="text-align: right;">-0.009610</td>
+<td style="text-align: right;">-0.039790</td>
+<td style="text-align: right;">0.0548307</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Violent Crime</td>
+<td style="text-align: right;">-0.069040</td>
+<td style="text-align: right;">-0.107230</td>
+<td style="text-align: right;">0.038184</td>
+<td style="text-align: right;">0.1641667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Non Violent Crime</td>
+<td style="text-align: right;">-0.165050</td>
+<td style="text-align: right;">-0.186780</td>
+<td style="text-align: right;">0.021725</td>
+<td style="text-align: right;">0.3493958</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">All Crimes</td>
+<td style="text-align: right;">-0.234100</td>
+<td style="text-align: right;">-0.294000</td>
+<td style="text-align: right;">0.059909</td>
+<td style="text-align: right;">0.2109585</td>
+</tr>
+</tbody>
+</table>
+<p>There are a couple of notable results. First, the number of total crimes decreases more around control lots (-0.29) than around greened lots (-0.23), and the difference in differences is +0.06. This means even though crime had reduced around greened lots, greened lots had on average 0.06 more crimes than the control lots. In other words, greening seems to have slowed down the crime reduction that would have taken place otherwise. The crimetypes with significant positive difference in differences (at a 5% confidence level) were the number of aggravated assaults (0.10) and public drinking (0.01). The crimetypes with significant negative difference in differences (at a 5% confidence level) were disorderly conduct and robberies. This initial analysis seems to suggest that greening actually increases the total number of crimes, particularly aggravated assaults and public drinking, relative to control vacant lots.</p>
+<p>This analysis has one big shortcoming, Namely, we’ve assumed that control lots and vacant lots are directly comparable and the only difference between them is that some of them were greened. However, greened lots and control lots as an aggregate tend to be located in different kinds of neighborhoods. Below is a comparison of the socioeconomic characteristics of the average neighborhood that control lots and greened lots are located in. Control vacant lots tend to be in neighborhoods with higher poverty rates, higher share of black residents, lower share of white residents and lower college education rates than the average neighborhood in Philadelphia. Greened lots tend to be in neighborhoods with even higher poverty rates, even higher share of black residents, even lower share of white residents and even lower college education rates. We needed a way of measuring crime change while also taking into account the different surrounding neighborhoods of greened and control vacant lots.</p>
+<p><img src="..\final_data\graphs\demo_profil_lots.png"></p>
+<p>So, we decided to create a crime metric for each lot that takes into account the crime change in the surrounding neighborhoods. Namely, we created a standardized crime change metric that was the difference in crimes at a 70 meter buffer minus the number of crimes at a 500 meter buffer. The difference in crimes was standardized per square kilometer - that is divided by the area of the buffer in square kilometers - so that the differences in crimes could be directly comparable across different buffer sizes. The difference in number of crimes at a 500 meter buffer tells us about the neighborhood level crime trends. And the difference in number of crimes at a 70 meter buffer tells us about the localized crime trends around a vacant lot. The differences between these differences will tell us what the additive effect of greening is relative to the neighborhood crime trends. Below are the mean standardized differences in number of crimes per 10,000 meters for greened vacant lots and control vacant lots broken down by crimetype, along with the Wilcoxon rank-sum test’s p-value for the differences in differences.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Crimetype</th>
+<th style="text-align: right;">Standardized difference (greened)</th>
+<th style="text-align: right;">Standardized difference (control)</th>
+<th style="text-align: right;">Difference in Difference</th>
+<th style="text-align: right;">Wilcox test p value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aggravated Assaults</td>
+<td style="text-align: right;">4.506</td>
+<td style="text-align: right;">-2.364</td>
+<td style="text-align: right;">6.870</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Burglaries</td>
+<td style="text-align: right;">-1.850</td>
+<td style="text-align: right;">-2.446</td>
+<td style="text-align: right;">0.596</td>
+<td style="text-align: right;">0.514</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Disorderly Conduct</td>
+<td style="text-align: right;">-2.350</td>
+<td style="text-align: right;">0.329</td>
+<td style="text-align: right;">-2.678</td>
+<td style="text-align: right;">0.996</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Homicides</td>
+<td style="text-align: right;">0.826</td>
+<td style="text-align: right;">0.058</td>
+<td style="text-align: right;">0.769</td>
+<td style="text-align: right;">0.012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Drinking</td>
+<td style="text-align: right;">0.241</td>
+<td style="text-align: right;">-0.297</td>
+<td style="text-align: right;">0.537</td>
+<td style="text-align: right;">0.600</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robberies</td>
+<td style="text-align: right;">-5.029</td>
+<td style="text-align: right;">-0.512</td>
+<td style="text-align: right;">-4.517</td>
+<td style="text-align: right;">0.036</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Thefts</td>
+<td style="text-align: right;">-2.577</td>
+<td style="text-align: right;">0.302</td>
+<td style="text-align: right;">-2.878</td>
+<td style="text-align: right;">0.060</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Violent Crimes</td>
+<td style="text-align: right;">0.304</td>
+<td style="text-align: right;">-2.818</td>
+<td style="text-align: right;">3.122</td>
+<td style="text-align: right;">0.057</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Non Violent Crimes</td>
+<td style="text-align: right;">-6.536</td>
+<td style="text-align: right;">-2.113</td>
+<td style="text-align: right;">-4.423</td>
+<td style="text-align: right;">0.477</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">All</td>
+<td style="text-align: right;">-6.232</td>
+<td style="text-align: right;">-4.931</td>
+<td style="text-align: right;">-1.302</td>
+<td style="text-align: right;">0.991</td>
+</tr>
+</tbody>
+</table>
+<p>For greened lots, all crimes except for aggravated assaults, homicides and public drinking went down in relation to the neighborhood level crime trends. And for control lots, all crimes except for homicides, disorderly conduct and thefts went down in relation to the neighborhood level crime trends. Since homicides are a low frequency and unpredictable crime type, this result should not be read into too much. Finally the difference in differences - which can be thought of as the additive effect of greening on crime in relation to neighborhood level crime trends and control vacant lots - show similar results to the unstandardized results above. Namely, the number of disorderly conduct, robberies and thefts went down while the number of burglaries, homicides, and public drinking went slightly up. Interestingly, the total number of crimes and non violent crimes go down (thought not at a statistically significant level), in contrast to the unstandardized analysis above. This is because while the signs are the same between the unstandardized and standardized analyses, the magnitudes of the negative results are larger in the standardized analysis.</p>
+<p>The big takeaway is that greening reduces the number of non violent crimes - mainly through reductions in disorderly conduct citations, thefts and robberies - after taking into account crime trends in the surrounding neighborhood and crime trends around control vacant lots. These results are for the most part statistically significant at the 5% level. There are also statistically insignificant increases in the number of burglaries, homicides, public drinking citations, total violent crimes and a large and statistically significant increase in the number of aggravated assaults.</p>
+<p>For robustness, we replicated the above analysis at a buffer distance of 150 meters instead of 70 meters, and the results stayed mostly the same. For the actual results, consult Part C of the Appendix.</p>
+<h2 id="conclusion" class="unnumbered">Conclusion</h2>
+
+
+  </body>
+</html>
