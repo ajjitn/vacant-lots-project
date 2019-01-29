@@ -10,7 +10,7 @@ Datasets used:
 ### Data Cleaning
 
 The `raw_data` folder contains the initial data I started with.
-  - `Philly_Crime_98to11_Final.dta` was provided courtesy of John MacDonald of the Criminology Department at Penn and contains data on crimes within Philly from 1998 to 2011. We combined this with current crime data published on opendataphilly [here](https://www.opendataphilly.org/dataset/crime-incidents) to create one unified crime dataset.
+  - `Philly_Crime_98to11_Final.dta` was provided courtesy of John MacDonald of the Criminology Department at Penn and contains data on crimes within Philly from 1998 to 2011. We combined this with current crime data published on opendataphilly [here](https://www.opendataphilly.org/dataset/crime-incidents) to create one unified crime dataset. Note this file is not in the Github repo because it is very large. But can be downlaoded from here.
   -  `raw_geocoded_greened_lots_data.rds` is a geocoded listing of all the greened lots in Philly given to us by PHS. The instructions for geocoding can be found in `raw_data/geocoding_greened_lots`.
 
 
